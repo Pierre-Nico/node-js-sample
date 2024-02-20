@@ -20,22 +20,9 @@ jobs:
       - run:
           name: Run Docker Container
           command: |
-            docker run -d --name www-nodejs-container -p 8000:3000 www-nodejs
+            docker run -d -p 8080:8080 www-nodejs
 
       - run:
-          name: Wait for Application to Start
+          name: Test Web Server with Curl
           command: |
-            sleep 10 # Attend quelques secondes pour permettre au serveur de démarrer
-
-      - run:
-          name: Test Application Route
-          command: |
-            curl --retry 10 --retry-delay 5 --retry-connrefused http://localhost:8000/
-            # Remplacez "/route" par la route spécifique que vous souhaitez tester
-            # Assurez-vous que le port mappé ici (8000) correspond au port exposé par votre conteneur
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
+            curl http://localhost:8080
