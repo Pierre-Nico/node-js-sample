@@ -30,9 +30,7 @@ jobs:
       - run:
           name: Test Application Route
           command: |
-            curl --retry 10 --retry-delay 5 --retry-connrefused http://localhost:8000/
-            # Remplacez "/route" par la route spécifique que vous souhaitez tester
-            # Assurez-vous que le port mappé ici (8000) correspond au port exposé par votre conteneur
+            curl --retry 10 --retry-delay 5 --retry-connrefused http://localhost:8080/
 
 workflows:
   version: 2
