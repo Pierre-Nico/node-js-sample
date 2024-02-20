@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Run Docker Container
           command: |
-            docker run -d --name www-nodejs-container -p 8000:3000 www-nodejs
+            docker run -d --name www-nodejs-container -p 8080:8080 www-nodejs
 
       - run:
           name: Wait for Application to Start
